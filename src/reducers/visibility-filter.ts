@@ -1,7 +1,7 @@
 import { Action } from 'redux'
-import { VisibilityFilters } from '../actions'
+import { VisibilityFilter } from '../actions'
 
-const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action: Action) => {
+const visibilityFilter = (state = VisibilityFilter.SHOW_ALL, action: Action) => {
   switch (action.type) {
     case 'SET_VISIBILITY_FILTER':
       return (action as any).filter

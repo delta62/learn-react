@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 export interface LinkProps {
   active: boolean
-  children: any[]
+  children?: ReactNode
   onClick(): void
 }
 

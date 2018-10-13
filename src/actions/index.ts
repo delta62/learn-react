@@ -1,5 +1,3 @@
-export type VisibilityFilter = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE'
-
 let nextTodoId = 0
 
 export const addTodo = (text: string) => ({
@@ -18,8 +16,8 @@ export const toggleTodo = (id: number) => ({
   id: id
 })
 
-export const VisibilityFilters: Record<VisibilityFilter, VisibilityFilter> = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
+export enum VisibilityFilter {
+  SHOW_ALL,
+  SHOW_COMPLETED,
+  SHOW_ACTIVE
 }
