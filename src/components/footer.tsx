@@ -3,18 +3,18 @@ import FilterLink from '../containers/filter-link'
 import { VisibilityFilter } from '../actions'
 
 const Footer = () => (
-  <div>
-    <span>Show: </span>
-    <FilterLink filter={VisibilityFilter.SHOW_ALL}>
-      All
+    <div>
+        <span>Show: </span>
+        <FilterLink filter={VisibilityFilter.SHOW_ALL}>
+            All
     </FilterLink>
-    <FilterLink filter={VisibilityFilter.SHOW_ACTIVE}>
-      Active
+        <FilterLink filter={VisibilityFilter.SHOW_ACTIVE}>
+            Active
     </FilterLink>
-    <FilterLink filter={VisibilityFilter.SHOW_COMPLETED}>
-      Completed
+        <FilterLink filter={VisibilityFilter.SHOW_COMPLETED}>
+            Completed
     </FilterLink>
-  </div>
+    </div>
 )
 
 export default Footer

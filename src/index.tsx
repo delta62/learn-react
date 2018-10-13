@@ -8,8 +8,8 @@ import App from './components/app'
 let store = createStore(rootReducer)
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('app')
 )
