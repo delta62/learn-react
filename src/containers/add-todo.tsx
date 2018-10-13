@@ -7,7 +7,7 @@ const AddTodo = ({ dispatch }: { dispatch: Dispatch }) => {
     let input: HTMLInputElement
 
     return (
-        <div>
+        <div className="pb-2 mb-0">
             <form
                 onSubmit={e => {
                     e.preventDefault()
@@ -18,10 +18,16 @@ const AddTodo = ({ dispatch }: { dispatch: Dispatch }) => {
                     input.value = ''
                 }}
             >
-                <input ref={node => input = node!} />
-                <button type="submit">
-                    Add Todo
-        </button>
+
+                <div className="input-group py-1 rounded">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text rounded-0 border-0 pr-1">+</span>
+                    </div>
+                    <input type="text"
+                        className="form-control rounded-0 border-0"
+                        placeholder="Add a to-do..."
+                        ref={node => input = node!} />
+                </div>
             </form>
         </div>
     )

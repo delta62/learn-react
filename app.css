@@ -1,0 +1,51 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    background-color: #f8f9fa;
+    font-family: "Arial";
+}
+
+input {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.container {
+    max-width: 50rem;
+    min-width: 21rem;
+}
+
+.input-group {
+    background-color: rgba(61, 187, 61, 0.75);
+    line-height: 1.25rem;
+}
+
+.input-group .form-control,
+.input-group .input-group-text {
+    color: #fff;
+    background: none !important;
+    line-height: 1.25rem;
+}
+
+.list-group-item.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.input-group .input-group-text {
+    font-size: 1.56rem;
+    opacity: 0.9;
+}
+
+.form-control::placeholder {
+    color: #fff;
+    opacity: 0.7;
+}
+
+.list-group .list-group-item {
+    margin-bottom: 0.0625rem;
+}
+
+.list-group .list-group-item:hover {
+    cursor: pointer;
+}

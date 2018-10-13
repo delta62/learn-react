@@ -6,12 +6,10 @@ interface TodoProps {
     text: string
 }
 
+
 const Todo = ({ onClick, completed, text }: TodoProps) => (
-    <li
+    <li className={`list-group-item rounded list-group-item-action ${completed ? 'completed' : ''}`}
         onClick={onClick}
-        style={{
-            textDecoration: completed ? 'line-through' : 'none'
-        }}
     >
         {text}
     </li>

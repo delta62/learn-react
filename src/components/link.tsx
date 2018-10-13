@@ -7,12 +7,9 @@ export interface LinkProps {
 }
 
 const Link = ({ active, children, onClick }: LinkProps) => (
-    <button
+    <button className="btn btn-link"
         onClick={onClick}
         disabled={active}
-        style={{
-            marginLeft: '4px'
-        }}
     >
         {children}
     </button>

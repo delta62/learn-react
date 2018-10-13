@@ -7,7 +7,7 @@ interface TodoListProps {
 }
 
 const TodoList = ({ todos, toggleTodo }: TodoListProps) => (
-    <ul>
+    <ul className="list-group mt-3">
         {todos.map(todo =>
             <Todo
                 key={todo.id}

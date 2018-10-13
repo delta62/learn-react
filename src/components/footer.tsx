@@ -3,7 +3,7 @@ import FilterLink from '../containers/filter-link'
 import { VisibilityFilter } from '../actions'
 
 const Footer = () => (
-    <div>
+    <div className="d-block text-right mt-3">
         <span>Show: </span>
         <FilterLink filter={VisibilityFilter.SHOW_ALL}>
             All
