@@ -1,20 +1,20 @@
-import { Action } from 'redux'
+import { Action, ActionType } from '../actions/action-types'
 import { TodoState } from '../models'
 
 const todos = (state: TodoState[] = [], action: Action): TodoState[] => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case ActionType.ADD_TODO:
             return [
                 ...state,
                 {
-                    id: (action as any).id,
-                    text: (action as any).text,
+                    id: action.id,
+                    text: action.text,
                     completed: false
                 }
             ]
-        case 'TOGGLE_TODO':
+        case ActionType.TOGGLE_TODO:
             return state.map(todo =>
-                (todo.id === (action as any).id)
+                (todo.id === action.id)
                     ? { ...todo, completed: !todo.completed }
                     : todo
             )
