@@ -29,6 +29,14 @@ export const toggleTodo = (id: number): Action => {
     };
 };
 
+export const resetTodos = () => {
+    TodoApi.clearAll();
+
+    return {
+        type: ActionType.RESET
+    };
+};
+
 export const setVisibilityFilter = (filter: VisibilityFilter): Action => ({
     type: ActionType.SET_VISIBILITY_FILTER,
     filter: filter

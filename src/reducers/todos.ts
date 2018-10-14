@@ -20,6 +20,8 @@ const todos = (state: TodoState[] = [], action: Action): TodoState[] => {
                     ? { ...todo, completed: !todo.completed }
                     : todo
             )
+        case ActionType.RESET:
+            return [];
         default:
             return state
     }

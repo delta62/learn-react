@@ -34,6 +34,12 @@ const Database = (() => {
             return todo.id;
         },
 
+        reset: () => {
+            localStorage.removeItem(STORAGE_KEY);
+            nextTodoId = 0;
+            todoTable = {};
+        },
+
         updateTodo: (todo: TodoState) => {
             todoTable[todo.id] = todo;
             save();
@@ -56,3 +62,5 @@ export const toggleTodo = (id: number) => {
 };
 
 export const getAll = () => Database.getAll().sort((todo1, todo2) => todo1.id - todo2.id);
+
+export const clearAll = () => Database.reset();
