@@ -1,22 +1,38 @@
+import * as TodoApi from '../api/todo-api';
 import { Action, ActionType } from "./action-types";
 
-let nextTodoId = 0
+export const addTodo = (text: string): Action => {
+    const id = TodoApi.addNewTodo(text);
 
-export const addTodo = (text: string): Action => ({
-    type: ActionType.ADD_TODO,
-    id: nextTodoId++,
-    text: text
-})
+    return {
+        type: ActionType.ADD_TODO,
+        id,
+        text
+    };
+};
 
-export const toggleTodo = (id: number): Action => ({
-    type: ActionType.TOGGLE_TODO,
-    id: id
-})
+export const fetchTodos = (): Action => {
+    const todos = TodoApi.getAll();
+
+    return {
+        type: ActionType.FETCH_TODOS,
+        todos
+    };
+};
+
+export const toggleTodo = (id: number): Action => {
+    TodoApi.toggleTodo(id);
+
+    return {
+        type: ActionType.TOGGLE_TODO,
+        id
+    };
+};
 
 export const setVisibilityFilter = (filter: VisibilityFilter): Action => ({
     type: ActionType.SET_VISIBILITY_FILTER,
     filter: filter
-})
+});
 
 export enum VisibilityFilter {
     SHOW_ALL,

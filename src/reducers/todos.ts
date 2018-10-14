@@ -12,6 +12,8 @@ const todos = (state: TodoState[] = [], action: Action): TodoState[] => {
                     completed: false
                 }
             ]
+        case ActionType.FETCH_TODOS:
+            return action.todos.slice();
         case ActionType.TOGGLE_TODO:
             return state.map(todo =>
                 (todo.id === action.id)
