@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Learn React!",
     "scripts": {
-        "start": "webpack-dev-server"
+        "start": "webpack-dev-server --open"
     },
     "author": "Sam Noedel <sam.noedel@gmail.com>",
     "license": "MIT",
