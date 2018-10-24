@@ -10,6 +10,37 @@ input {
     box-shadow: none !important;
 }
 
+ol, ul {
+    margin-top: 1rem;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+li {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: 0.0625rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    width: 100%;
+    color: #495057;
+    text-align: inherit;
+    border-radius: .25rem!important;
+}
+
+li.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
 .container {
     max-width: 50rem;
     min-width: 25rem;
@@ -20,16 +51,10 @@ input {
     line-height: 1.25rem;
 }
 
-.input-group .form-control,
-.input-group .input-group-text {
+.input-group .form-control, .input-group .input-group-text {
     color: #fff;
     background: none !important;
     line-height: 1.25rem;
-}
-
-.list-group-item.completed {
-    opacity: 0.5;
-    text-decoration: line-through;
 }
 
 .input-group .input-group-text {
@@ -40,12 +65,4 @@ input {
 .form-control::placeholder {
     color: #fff;
     opacity: 0.7;
-}
-
-.list-group .list-group-item {
-    margin-bottom: 0.0625rem;
-}
-
-.list-group .list-group-item:hover {
-    cursor: pointer;
 }

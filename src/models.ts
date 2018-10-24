@@ -1,11 +1,11 @@
 import { VisibilityFilter } from './actions'
 
 export interface AppState {
-    todos: TodoState[]
+    todos: TodoModel[]
     visibilityFilter: VisibilityFilter
 }
 
-export interface TodoState {
+export interface TodoModel {
     id: number
     completed: boolean
     text: string

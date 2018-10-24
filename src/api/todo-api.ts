@@ -1,4 +1,4 @@
-import { TodoState } from "../models";
+import { TodoModel } from "../models";
 
 // Wrapper around local storage
 const Database = (() => {
@@ -8,7 +8,7 @@ const Database = (() => {
     let { nextTodoId, todoTable } = (() => {
         const prevData = localStorage.getItem(STORAGE_KEY);
         let nextTodoId = 0;
-        let todoTable: Record<string, TodoState> = {};
+        let todoTable: Record<string, TodoModel> = {};
 
         if (prevData) {
             try {
@@ -40,7 +40,7 @@ const Database = (() => {
             todoTable = {};
         },
 
-        updateTodo: (todo: TodoState) => {
+        updateTodo: (todo: TodoModel) => {
             todoTable[todo.id] = todo;
             save();
         },

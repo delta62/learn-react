@@ -1,36 +1,52 @@
-import React from 'react'
+import React, { Component, FormEvent } from 'react'
 import { Dispatch } from 'redux'
 import { connect } from 'react-redux'
-import { addTodo } from '../actions'
+import { addTodo } from '../actions';
 
-const AddTodo = ({ dispatch }: { dispatch: Dispatch }) => {
-    let input: HTMLInputElement
+interface AddTodoProps {
+    dispatch: Dispatch;
+}
 
-    return (
-        <div className="pb-2 mb-0">
-            <form
-                onSubmit={e => {
-                    e.preventDefault()
-                    if (!input.value.trim()) {
-                        return
-                    }
-                    dispatch(addTodo(input.value))
-                    input.value = ''
-                }}
-            >
+interface AddTodoState {
+    value: string;
+}
 
-                <div className="input-group py-1 rounded">
-                    <div className="input-group-prepend">
-                        <span className="input-group-text rounded-0 border-0 pr-1">+</span>
+class AddTodo extends Component<AddTodoProps, AddTodoState> {
+    constructor(props: AddTodoProps) {
+        super(props);
+        this.state = { value: '' };
+
+        this.saveTodo = this.saveTodo.bind(this);
+    }
+
+    private saveTodo(e: FormEvent) {
+        e.preventDefault();
+        if (!this.state.value.trim()) return;
+
+        this.props.dispatch(addTodo(this.state.value));
+
+        // Clears input text box after todo is saved
+        this.setState({ value: '' });
+    }
+
+    render() {
+        return (
+            <div className="pb-2 mb-0">
+                <form onSubmit={this.saveTodo}>
+                    <div className="input-group py-1 rounded">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text rounded-0 border-0 pr-1">+</span>
+                        </div>
+                        <input type="text"
+                            className="form-control rounded-0 border-0"
+                            placeholder="Add a to-do..."
+                            value={this.state.value}
+                            onChange={e => this.setState({ value: e.target.value })} />
                     </div>
-                    <input type="text"
-                        className="form-control rounded-0 border-0"
-                        placeholder="Add a to-do..."
-                        ref={node => input = node!} />
-                </div>
-            </form>
-        </div>
-    )
+                </form>
+            </div>
+        );
+    }
 }
 
 export default connect()(AddTodo)

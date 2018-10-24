@@ -1,11 +1,13 @@
 import React from 'react'
 import FilterLink from '../containers/filter-link'
-import { VisibilityFilter } from '../actions'
 import ResetLink from '../containers/reset-link';
+import { VisibilityFilter } from '../actions'
+import { clearAll } from '../api/todo-api';
+import Link from './link';
 
 const Footer = () => (
     <div className="row mt-3">
-        <div className="col-auto text-left"><ResetLink /></div>
+        <div className="col-auto text-left"><ResetLink>Reset</ResetLink></div>
         <div className="col text-right">
             <span>Show: </span>
             <FilterLink filter={VisibilityFilter.SHOW_ALL}>All</FilterLink>

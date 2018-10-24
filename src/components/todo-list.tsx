@@ -1,21 +1,27 @@
 import React from 'react'
-import Todo from './todo'
+import { TodoModel } from '../models';
 
 interface TodoListProps {
-    todos: { id: number, completed: boolean, text: string }[]
-    toggleTodo(id: number): void
+    todos: TodoModel[];
+    toggleTodo(id: number): void;
 }
 
-const TodoList = ({ todos, toggleTodo }: TodoListProps) => (
-    <ul className="list-group mt-3">
-        {todos.map(todo =>
-            <Todo
-                key={todo.id}
-                {...todo}
-                onClick={() => toggleTodo(todo.id)}
-            />
-        )}
-    </ul>
-)
+const TodoList = ({ todos, toggleTodo }: TodoListProps) => {
+    if (!todos.length) {
+        return <div>There are no todos yet!</div>;
+    }
 
-export default TodoList
+    return (
+        <ol className="list-group mt-3">
+            {todos.map(todo =>
+                <li
+                    key={todo.id}
+                    onClick={() => toggleTodo(todo.id)}
+                    className={todo.completed ? 'completed' : ''}>
+                    {todo.text}
+                </li>)}
+        </ol>
+    );
+};
+
+export default TodoList;

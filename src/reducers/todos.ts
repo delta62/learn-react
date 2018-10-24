@@ -1,7 +1,7 @@
 import { Action, ActionType } from '../actions/action-types'
-import { TodoState } from '../models'
+import { TodoModel } from '../models'
 
-const todos = (state: TodoState[] = [], action: Action): TodoState[] => {
+const todos = (state: TodoModel[] = [], action: Action): TodoModel[] => {
     switch (action.type) {
         case ActionType.ADD_TODO:
             return [
@@ -11,16 +11,16 @@ const todos = (state: TodoState[] = [], action: Action): TodoState[] => {
                     text: action.text,
                     completed: false
                 }
-            ]
-        case ActionType.FETCH_TODOS:
-            return action.todos.slice();
+            ];
         case ActionType.TOGGLE_TODO:
             return state.map(todo =>
                 (todo.id === action.id)
                     ? { ...todo, completed: !todo.completed }
                     : todo
-            )
-        case ActionType.RESET:
+            );
+        case ActionType.FETCH_TODOS:
+            return action.todos.slice();
+        case ActionType.RESET_TODOS:
             return [];
         default:
             return state

@@ -11,15 +11,6 @@ export const addTodo = (text: string): Action => {
     };
 };
 
-export const fetchTodos = (): Action => {
-    const todos = TodoApi.getAll();
-
-    return {
-        type: ActionType.FETCH_TODOS,
-        todos
-    };
-};
-
 export const toggleTodo = (id: number): Action => {
     TodoApi.toggleTodo(id);
 
@@ -33,7 +24,16 @@ export const resetTodos = () => {
     TodoApi.clearAll();
 
     return {
-        type: ActionType.RESET
+        type: ActionType.RESET_TODOS
+    };
+};
+
+export const fetchTodos = (): Action => {
+    const todos = TodoApi.getAll();
+
+    return {
+        type: ActionType.FETCH_TODOS,
+        todos
     };
 };
 
@@ -43,7 +43,7 @@ export const setVisibilityFilter = (filter: VisibilityFilter): Action => ({
 });
 
 export enum VisibilityFilter {
-    SHOW_ALL,
-    SHOW_COMPLETED,
-    SHOW_ACTIVE
+    SHOW_ALL = "SHOW_ALL",
+    SHOW_COMPLETED =  "SHOW_COMPLETED",
+    SHOW_ACTIVE = "SHOW_ACTIVE"
 }
