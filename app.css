@@ -1,35 +1,66 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
-
-body {
-    background-color: #f8f9fa;
-    font-family: "Arial";
+html {
+    --app-main: rgba(61, 187, 61, 0.75);
+    --white: hsl(0, 0%, 99%);
+    --light-grey: hsl(210, 11%, 96%);
+    --med-grey: hsl(210, 11%, 88%);
+    --grey: hsl(210, 11%, 60%);
+    --black: #495057;
+    --app-secondary: hsl(179, 53%, 46%);
 }
 
-input {
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
+body {
+    align-items: center;
+    background-color: var(--light-grey);
+    display: flex;
+    font-family: "Arial";
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+}
+
+header {
+    text-align: end;
+    background-color: var(--app-main);
+    padding: 0 1em;
+    color: var(--white);
+}
+
+footer {
+  padding-top: 1rem;
+}
+
+footer .left, footer .right {
+    display: inline-block;
+    width: 50%;
+}
+
+footer .right {
+    display: inline-flex;
+    justify-content: flex-end;
 }
 
 ol, ul {
+    flex: 1;
     margin-top: 1rem;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     padding-left: 0;
     margin-bottom: 0;
+    overflow: auto;
+}
+
+ol {
+    padding-left: 2.1rem;
 }
 
 li {
-    position: relative;
-    display: block;
     padding: .75rem 1.25rem;
-    margin-bottom: 0.0625rem;
+    margin-bottom: 0.25rem;
     background-color: #fff;
-    border: 1px solid rgba(0,0,0,.125);
-    width: 100%;
-    color: #495057;
-    text-align: inherit;
-    border-radius: .25rem!important;
+    border: solid 1px var(--med-grey);
+    color: var(--black);
+    border-radius: .25rem;
 }
 
 li.completed {
@@ -41,28 +72,60 @@ li:hover {
     cursor: pointer;
 }
 
-.container {
-    max-width: 50rem;
-    min-width: 25rem;
+.app {
+    background-color: var(--white);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.3);
+    flex-direction: column;
+    display: flex;
+    height: 92vh;
+    max-width: 90vw;
+    padding: 1em;
+    width: 40rem;
 }
 
-.input-group {
-    background-color: rgba(61, 187, 61, 0.75);
-    line-height: 1.25rem;
+.empty-list {
+    color: var(--grey);
+    text-align: center;
+    margin-top: 1rem;
+    flex: 1;
 }
 
-.input-group .form-control, .input-group .input-group-text {
-    color: #fff;
-    background: none !important;
-    line-height: 1.25rem;
+.add-todo {
+    padding: 1rem 0;
+    display: flex;
+    border-bottom: solid 1px var(--med-grey);
 }
 
-.input-group .input-group-text {
-    font-size: 1.56rem;
-    opacity: 0.9;
+.add-todo .submit {
+    border: solid 1px var(--med-grey);
+    color: var(--grey);
+    font-size: 1.2rem;
+    padding: 0.5rem 0.75rem;
 }
 
-.form-control::placeholder {
-    color: #fff;
-    opacity: 0.7;
+input {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+input[type="text"] {
+    background-color: var(--light-grey);
+    border: solid 1px var(--med-grey);
+    border-radius: 2px;
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.2rem;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+input[type="text"]::placeholder {
+    color: var(--grey);
+}
+
+input[type="text"]:focus {
+      outline: none;
+      background-color: var(--white);
+      border-color: var(--app-secondary);
 }

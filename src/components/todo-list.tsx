@@ -8,11 +8,11 @@ interface TodoListProps {
 
 const TodoList = ({ todos, toggleTodo }: TodoListProps) => {
     if (!todos.length) {
-        return <div>There are no todos yet!</div>;
+        return <div className="empty-list">There are no todos yet!</div>;
     }
 
     return (
-        <ol className="list-group mt-3">
+        <ol>
             {todos.map(todo =>
                 <li
                     key={todo.id}

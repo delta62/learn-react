@@ -31,20 +31,13 @@ class AddTodo extends Component<AddTodoProps, AddTodoState> {
 
     render() {
         return (
-            <div className="pb-2 mb-0">
-                <form onSubmit={this.saveTodo}>
-                    <div className="input-group py-1 rounded">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text rounded-0 border-0 pr-1">+</span>
-                        </div>
-                        <input type="text"
-                            className="form-control rounded-0 border-0"
-                            placeholder="Add a to-do..."
-                            value={this.state.value}
-                            onChange={e => this.setState({ value: e.target.value })} />
-                    </div>
-                </form>
-            </div>
+              <form className="add-todo" onSubmit={this.saveTodo}>
+                  <span className="submit">+</span>
+                  <input type="text"
+                      placeholder="Add a to-do..."
+                      value={this.state.value}
+                      onChange={e => this.setState({ value: e.target.value })} />
+              </form>
         );
     }
 }

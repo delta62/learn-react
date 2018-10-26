@@ -6,15 +6,15 @@ import { clearAll } from '../api/todo-api';
 import Link from './link';
 
 const Footer = () => (
-    <div className="row mt-3">
-        <div className="col-auto text-left"><ResetLink>Reset</ResetLink></div>
-        <div className="col text-right">
+    <footer>
+        <div className="left"><ResetLink>Reset</ResetLink></div>
+        <div className="right">
             <span>Show: </span>
             <FilterLink filter={VisibilityFilter.SHOW_ALL}>All</FilterLink>
             <FilterLink filter={VisibilityFilter.SHOW_ACTIVE}>Active</FilterLink>
             <FilterLink filter={VisibilityFilter.SHOW_COMPLETED}>Completed</FilterLink>
         </div>
-    </div>
+    </footer>
 )
 
 export default Footer
